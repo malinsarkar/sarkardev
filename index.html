@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#11251f">
+  <meta name="description" content="SarkarDev Digital Solutions — ওয়েবসাইট, মোবাইল অ্যাপ, ডিজিটাল মার্কেটিং ও অনলাইন ব্যবসার পরিষেবা।">
+  <title>SarkarDev Digital Solutions | আপনার ব্যবসা, এবার অনলাইনে</title>
+  <style>
+    :root {
+      --forest: #11251f;
+      --forest-2: #1b392e;
+      --cream: #f7f3e9;
+      --paper: #fffdf7;
+      --gold: #d8b66a;
+      --gold-light: #f1dfac;
+      --ink: #202b25;
+      --muted: #68736b;
+      --line: #e7e0d1;
+      --green: #168447;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; background: var(--cream); color: var(--ink);
+      font-family: "Noto Sans Bengali", "Hind Siliguri", system-ui, -apple-system, sans-serif;
+    }
+    a { color: inherit; }
+    .topbar {
+      background: var(--forest); color: #fffdf7; padding: 13px 17px;
+      display: flex; justify-content: space-between; align-items: center; gap: 10px;
+      border-bottom: 1px solid rgba(216,182,106,.45);
+    }
+    .brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .monogram {
+      width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--gold);
+      color: var(--gold-light); border-radius: 13px; display: grid; place-items: center;
+      font-family: Georgia, serif; font-weight: 900; font-size: 1.03rem; letter-spacing: -.08em;
+    }
+    .brand-name { font-size: .9rem; font-weight: 900; line-height: 1.25; }
+    .brand-sub { font-size: .68rem; color: #c4cfc6; margin-top: 3px; }
+    .top-link { color: var(--gold-light); text-decoration: none; font-size: .78rem; font-weight: 800; white-space: nowrap; }
+    .hero {
+      color: white; padding: 48px 20px 43px; position: relative; overflow: hidden;
+      background:
+        radial-gradient(ellipse at 95% 0%, rgba(216,182,106,.18), transparent 32%),
+        radial-gradient(ellipse at 0% 100%, rgba(81,129,91,.23), transparent 36%),
+        linear-gradient(140deg, var(--forest), #0b1915);
+    }
+    .hero::after {
+      content: "S"; position: absolute; right: -8px; bottom: -70px;
+      font-family: Georgia, serif; font-size: 300px; line-height: 1;
+      color: rgba(216,182,106,.055); pointer-events: none;
+    }
+    .hero-inner { max-width: 900px; margin: auto; position: relative; z-index: 1; }
+    .eyebrow {
+      color: var(--gold-light); font-size: .76rem; font-weight: 850;
+      letter-spacing: .04em; display: flex; align-items: center; gap: 9px;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--gold); }
+    h1 {
+      margin: 17px 0 15px; font-size: clamp(2.35rem, 9.3vw, 4.3rem);
+      line-height: 1.2; letter-spacing: -.045em; max-width: 780px;
+    }
+    h1 span { color: var(--gold-light); }
+    .hero p { color: #d6e0d8; max-width: 610px; font-size: .96rem; line-height: 1.9; margin: 0 0 24px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: 11px; padding: 13px 16px; text-decoration: none;
+      font-size: .87rem; font-weight: 850; transition: transform .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: var(--gold-light); color: var(--forest); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.3); color: white; }
+    .trust { display: flex; flex-wrap: wrap; gap: 10px 17px; margin-top: 23px; color: #c8d3cb; font-size: .76rem; }
+    .trust span::before { content: "✓"; color: var(--gold-light); font-weight: 900; margin-right: 6px; }
+    main { max-width: 1020px; margin: auto; padding: 34px 15px 45px; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 10px; margin: 0 2px 19px; }
+    .kicker { color: #8a6a29; font-size: .73rem; font-weight: 900; letter-spacing: .08em; }
+    h2 { margin: 6px 0 0; font-size: clamp(1.7rem, 6.3vw, 2.45rem); line-height: 1.3; letter-spacing: -.035em; }
+    .desc { color: var(--muted); font-size: .88rem; line-height: 1.8; margin: 7px 0 0; max-width: 580px; }
+    .starting { font-size: .72rem; color: var(--muted); white-space: nowrap; padding-bottom: 5px; }
+    .services { display: grid; grid-template-columns: 1fr; gap: 13px; }
+    .service {
+      border: 1px solid var(--line); border-radius: 17px; background: var(--paper);
+      padding: 18px; box-shadow: 0 7px 22px rgba(31,47,36,.035);
+      display: flex; flex-direction: column; min-width: 0; position: relative;
+    }
+    .service.featured { border-color: #c7ad69; background: linear-gradient(145deg, #fffdf7, #f9f0d9); }
+    .service-top { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+    .service-icon {
+      width: 47px; height: 47px; display: grid; place-items: center; flex: 0 0 47px;
+      border-radius: 13px; background: #eaf0e7; color: var(--forest); font-size: 1.35rem;
+    }
+    .service-price { color: #80601f; font-size: 1.13rem; font-weight: 950; white-space: nowrap; }
+    .service h3 { margin: 14px 0 7px; font-size: 1.02rem; }
+    .service p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.85; flex: 1; }
+    .order {
+      display: flex; justify-content: center; align-items: center; gap: 8px;
+      width: 100%; padding: 12px; margin-top: 16px; border-radius: 10px;
+      background: var(--green); color: white; text-decoration: none;
+      font-size: .84rem; font-weight: 850;
+    }
+    .order:hover { background: #106b38; }
+    .other {
+      margin-top: 19px; border-radius: 17px; padding: 21px;
+      background: var(--forest-2); color: white; display: flex; flex-direction: column; gap: 15px;
+      border: 1px solid rgba(216,182,106,.5);
+    }
+    .other h3 { font-size: 1.12rem; margin: 0 0 5px; }
+    .other p { color: #d3ded5; font-size: .85rem; line-height: 1.8; margin: 0; }
+    .other .btn { align-self: flex-start; background: var(--gold-light); color: var(--forest); }
+    .process { margin-top: 35px; }
+    .steps { display: grid; grid-template-columns: 1fr; gap: 11px; margin-top: 16px; }
+    .step { background: var(--paper); border: 1px solid var(--line); border-radius: 13px; padding: 16px; }
+    .step-no { color: #8a6a29; font-size: .73rem; font-weight: 950; letter-spacing: .08em; }
+    .step strong { display: block; margin: 5px 0; font-size: .92rem; }
+    .step span { color: var(--muted); font-size: .81rem; line-height: 1.75; }
+    .note { font-size: .76rem; line-height: 1.7; color: var(--muted); margin: 15px 2px 0; }
+    footer { background: var(--forest); color: #c8d3cb; text-align: center; padding: 25px 15px 30px; font-size: .8rem; line-height: 2; }
+    footer strong { color: white; }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    @media (min-width: 620px) {
+      .topbar { padding: 15px 25px; }
+      .hero { padding: 68px 28px 59px; }
+      main { padding: 44px 23px 56px; }
+      .services { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .steps { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .other { flex-direction: row; justify-content: space-between; align-items: center; padding: 24px; }
+      .other .btn { align-self: center; flex-shrink: 0; }
+    }
+    @media (min-width: 880px) { .services { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="monogram" aria-hidden="true">SD</div>
+      <div>
+        <div class="brand-name">SarkarDev Digital Solutions</div>
+        <div class="brand-sub">আপনার ডিজিটাল কাজের বিশ্বস্ত সঙ্গী</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:flex-end">
+      <a class="top-link" href="#services">পরিষেবার তালিকা ↓</a>
+      <a class="top-link" href="https://sarkardev.in" target="_blank" rel="noopener noreferrer">মূল ওয়েবসাইট ↗</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="eyebrow">আপনার ব্যবসা, এবার অনলাইনে</div>
+      <h1>আপনার ব্যবসাকে<br><span>এগিয়ে নিয়ে চলুন।</span></h1>
+      <p>দোকান, ছোট ব্যবসা, প্রতিষ্ঠান কিংবা নিজের পরিষেবা—এবার অনলাইনে পরিচিতি তৈরি করুন। সাশ্রয়ী মূল্যে ওয়েবসাইট, মোবাইল অ্যাপ ও ডিজিটাল মার্কেটিং পরিষেবা, সহজ যোগাযোগের মাধ্যমে।</p>
+      <div class="actions">
+        <a class="btn btn-gold" href="#services">পরিষেবাগুলি দেখুন ↘</a>
+        <a class="btn btn-outline" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমি%20আপনার%20ডিজিটাল%20পরিষেবা%20সম্পর্কে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer">হোয়াটসঅ্যাপে কথা বলুন</a>
+      </div>
+      <div class="trust">
+        <span>সাশ্রয়ী প্যাকেজ</span>
+        <span>আপনার প্রয়োজন অনুযায়ী কাজ</span>
+        <span>সরাসরি যোগাযোগ</span>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="services">
+      <div class="section-head">
+        <div>
+          <div class="kicker">আমাদের পরিষেবা</div>
+          <h2>কাজ ও খরচের তালিকা</h2>
+          <p class="desc">আপনার প্রয়োজন অনুযায়ী পরিষেবা বেছে নিন। কী লাগবে বুঝতে অসুবিধা হলে হোয়াটসঅ্যাপে কথা বলুন—সহজভাবে বুঝিয়ে দেওয়া হবে।</p>
+        </div>
+        <div class="starting">শুরুর মূল্য</div>
+      </div>
+
+      <div class="services">
+        <article class="service featured">
+          <div class="service-top"><div class="service-icon" aria-hidden="true">▣</div><div class="service-price">₹ ৩,০০০</div></div>
+          <h3>সিঙ্গেল পেজ ওয়েবসাইট</h3>
+          <p>আপনার দোকান, ব্যবসা বা পরিষেবার জন্য এক পাতার সুন্দর ওয়েবসাইট। মোবাইল থেকেও সহজে দেখা যাবে।</p>
+          <a class="order" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমি%203000%20টাকার%20সিঙ্গেল%20পেজ%20ওয়েবসাইট%20সম্পর্কে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer">◉ হোয়াটসঅ্যাপে যোগাযোগ করুন</a>
+        </article>
+
+        <article class="service">
+          <div class="service-top"><div class="service-icon" aria-hidden="true">✦</div><div class="service-price">₹ ৫,০০০</div></div>
+          <h3>ব্র্যান্ড ওয়েবসাইট</h3>
+          <p>আপনার প্রতিষ্ঠান, ব্যবসা বা ব্র্যান্ডকে পেশাদারভাবে তুলে ধরার জন্য একাধিক বিভাগসহ ওয়েবসাইট।</p>
+          <a class="order" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমি%205000%20টাকার%20ব্র্যান্ড%20ওয়েবসাইট%20সম্পর্কে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer">◉ হোয়াটসঅ্যাপে যোগাযোগ করুন</a>
+        </article>
+
+        <article class="service">
+          <div class="service-top"><div class="service-icon" aria-hidden="true">🛍</div><div class="service-price">₹ ৭,০০০</div></div>
+          <h3>ই-কমার্স ওয়েবসাইট</h3>
+          <p>অনলাইনে পণ্য বিক্রির জন্য পণ্যের তালিকা ও কেনাকাটার সুবিধাসহ ওয়েবসাইট। প্রয়োজন অনুযায়ী ফিচার ঠিক হবে।</p>
+          <a class="order" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমি%207000%20টাকার%20ই-কমার্স%20ওয়েবসাইট%20সম্পর্কে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer">◉ হোয়াটসঅ্যাপে যোগাযোগ করুন</a>
+        </article>
+
+        <article class="service">
+          <div class="service-top"><div class="service-icon" aria-hidden="true">▦</div><div class="service-price">₹ ৫,০০০</div></div>
+          <h3>মোবাইল অ্যাপ তৈরি</h3>
+          <p>আপনার ব্যবসা, দোকান, পরিষেবা বা নতুন পরিকল্পনার জন্য অ্যান্ড্রয়েড অ্যাপ তৈরির বিষয়ে আলোচনা করুন।</p>
+          <a class="order" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমি%205000%20টাকা%20থেকে%20মোবাইল%20অ্যাপ%20তৈরির%20বিষয়ে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer">◉ হোয়াটসঅ্যাপে যোগাযোগ করুন</a>
+        </article>
+
+        <article class="service">
+          <div class="service-top"><div class="service-icon" aria-hidden="true">↗</div><div class="service-price">₹ ৩,০০০</div></div>
+          <h3>ডিজিটাল মার্কেটিং</h3>
+          <p>ফেসবুক ও অন্যান্য অনলাইন মাধ্যমে আপনার ব্যবসার পরিচিতি বাড়ানোর জন্য ডিজিটাল প্রচারের পরিষেবা।</p>
+          <a class="order" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমি%203000%20টাকার%20ডিজিটাল%20মার্কেটিং%20পরিষেবা%20সম্পর্কে%20জানতে%20চাই।" target="_blank" rel="noopener noreferrer">◉ হোয়াটসঅ্যাপে যোগাযোগ করুন</a>
+        </article>
+
+        <article class="service">
+          <div class="service-top"><div class="service-icon" aria-hidden="true">＋</div><div class="service-price">আলোচনা সাপেক্ষে</div></div>
+          <h3>অন্যান্য ডিজিটাল পরিষেবা</h3>
+          <p>গ্রাফিক ডিজাইন, বিলিং সফটওয়্যার, ওয়েবসাইটের পরিবর্তন, ব্যবসার সফটওয়্যার ও অন্যান্য ডিজিটাল কাজ।</p>
+          <a class="order" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমার%20একটি%20অন্য%20ডিজিটাল%20কাজ%20আছে।%20এটি%20নিয়ে%20আলোচনা%20করতে%20চাই।" target="_blank" rel="noopener noreferrer">◉ আপনার কাজের কথা জানান</a>
+        </article>
+      </div>
+
+      <div class="other">
+        <div>
+          <h3>আপনার মাথায় নতুন কোনও পরিকল্পনা আছে?</h3>
+          <p>কী ধরনের ওয়েবসাইট, অ্যাপ বা ডিজিটাল কাজ দরকার—আমাদের জানান। কাজের ধরন বুঝে খরচ ও সময় নিয়ে আলোচনা করা হবে।</p>
+        </div>
+        <a class="btn" href="https://wa.me/919932806426?text=নমস্কার%2C%20আমার%20একটি%20নতুন%20ডিজিটাল%20প্রজেক্টের%20পরিকল্পনা%20আছে।" target="_blank" rel="noopener noreferrer">নিজের প্রয়োজন জানান ↗</a>
+      </div>
+    </section>
+
+    <section class="process">
+      <div class="kicker">কাজের সহজ পদ্ধতি</div>
+      <h2>শুরু করবেন যেভাবে</h2>
+      <div class="steps">
+        <div class="step"><div class="step-no">ধাপ ০১</div><strong>আপনার প্রয়োজন জানান</strong><span>কী কাজ করাতে চান, সহজভাবে হোয়াটসঅ্যাপে লিখুন বা বলুন।</span></div>
+        <div class="step"><div class="step-no">ধাপ ০২</div><strong>খরচ ও কাজ ঠিক করুন</strong><span>কী কী সুবিধা থাকবে, কত খরচ ও কত সময় লাগবে—আগে আলোচনা করুন।</span></div>
+        <div class="step"><div class="step-no">ধাপ ০৩</div><strong>কাজ শুরু হোক</strong><span>পরিকল্পনা চূড়ান্ত হলে আপনার কাজ এগিয়ে নিয়ে যাওয়া হবে।</span></div>
+      </div>
+      <p class="note">* এখানে দেওয়া দাম প্রাথমিক মূল্য। কাজের পরিমাণ, বিশেষ ফিচার, ডোমেইন, হোস্টিং, পেমেন্ট ব্যবস্থা এবং অন্যান্য প্রয়োজন অনুযায়ী চূড়ান্ত খরচ বদলাতে পারে। কাজ শুরুর আগে সব কিছু আলোচনা করে নিন।</p>
+    </section>
+  </main>
+
+  <footer>
+    <strong>SarkarDev Digital Solutions</strong><br>
+    ওয়েবসাইট • মোবাইল অ্যাপ • ডিজাইন • ডিজিটাল মার্কেটিং<br>
+    <a href="https://wa.me/919932806426" target="_blank" rel="noopener noreferrer">হোয়াটসঅ্যাপে যোগাযোগ করুন</a><br>
+    <a href="https://sarkardev.in" target="_blank" rel="noopener noreferrer">অন্যান্য পরিষেবা ও বিস্তারিত জানতে sarkardev.in দেখুন ↗</a><br>
+    <span>আপনার ব্যবসার ডিজিটাল যাত্রায় পাশে আছি।</span>
+  </footer>
+</body>
+</html>
